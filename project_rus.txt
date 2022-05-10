@@ -635,7 +635,7 @@ d необходимо вычесть из 256. (Но это просто 8-би
 							else reflect(vx) 		# horizontal bounce
 							enabled by:
 							xrefl ∨ Bcontact ∨ reset
-						vy := # update y-velocity
+						vy := 						# update y-velocity
 							if reset then 0b001 	# initially +1
 							else reflect(vy) 		# vertical bounce
 							enabled by:
