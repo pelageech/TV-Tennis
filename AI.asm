@@ -55,7 +55,6 @@ while
 		add r1, r0
 	is cs
 		inc r3
-	else 
 	fi
 	ldi r1, bby # запоминаем новую мб финальную координату
 	st r1, r0
@@ -95,7 +94,6 @@ stays lt
     add r1, r0
   is cs
     inc r3
-  else 
   fi
   ldi r1, bby
   st r1, r0
@@ -120,17 +118,6 @@ then
 	ldi r3, bby
 	st r3, r2
 fi
-if
-	ldi r1, flag
-	ld r1, r1
-	tst r1
-is nz
-	ldi r2, bby
-	ld r2, r2
-	neg r2 # инвертируем финальную координату мяча
-	ldi r3, bby
-	st r3, r2
-fi 
 ldi r1, bby
 ld r1, r1
 ldi r0, bby
@@ -143,7 +130,6 @@ is cc
 then
 	ldi r3, 8 # возвращаем ракетку на место, если всё плохо
 	add r3, r2
-else 
 fi	
 st r0, r2
 
@@ -201,14 +187,13 @@ wend
 again:
 br continue # заново
 
-flag : ds 1
 speed : dc 8 # можно уменьшать
 bbx: ds 1
 vvy: ds 1
 bby: ds 1
 vvx: ds 1
 carrycnt: dc 0
-kek : dc 228 # ну типа 224
+kek : dc 228
 asect 0xfb
 VX: dc 2
 asect 0xfc
@@ -218,5 +203,5 @@ X: dc 2
 asect 0xfe
 Y: dc 0xb6
 asect 0xff
-RightBatY: dc 0x80
+RightBatY: ds 1
 end
